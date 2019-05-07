@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Product</h1>
+<table class='table'>
+ <tr>
+     <th>Name</th>
+     <th>Type</th>
+     <th>Description</th>
+     <th>Price</th>
+     <th>Submitted On</th>
+     <th>By</th>
+     <th>Link</th>
+ </tr>
+ {% for p in product_list %}
+   <tr>
+       <td><a href='{% url "productdetails" id=p.id %}'>{{ p.productname }}</a></td>
+       <td>{{ p.techtype }}</td>
+       <td>{{ p.productdescription }}</td>
+       <td>${{ p.productprice }}</td>
+       <td>{{ p.productentrydate }}</td>
+       <td>{{ p.user }}</td>
+       <td><a href='{{ p.productURL }}'>{{ p.productURL }}</a></td>
+   </tr>
+
+ {% endfor %}
+
+</table>
+
+{% endblock %}
+

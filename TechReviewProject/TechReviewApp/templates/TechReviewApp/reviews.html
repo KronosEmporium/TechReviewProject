@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Reviews</h1>
+<table class='table'>
+ <tr>
+     <th>Name</th>
+     <th>By</th>
+     <th>Submitted On</th>
+     <th>Product</th>
+     <th>Rating</th>
+     <th>Review</th>
+ </tr>
+ {% for r in review_list %}
+   <tr>
+       <td>{{ r.reviewtitle }}</td>
+       <td>{{ r.user }}</td>
+       <td>{{ r.reviewdate }}</td>
+       <td>{{ r.product }}</td>
+       <td>{{ r.rating }} / 5</td>
+       <td>{{ r.reviewtext }}</td>
+   </tr>
+
+ {% endfor %}
+
+</table>
+
+{% endblock %}
+
